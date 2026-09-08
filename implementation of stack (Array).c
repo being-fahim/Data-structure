@@ -36,6 +36,7 @@ int main() {
                 printf("\nInvalid choice!\n");
         }
         if (choice != 4) {
+            printf("\nPress Enter to continue...");
             while (getchar() != '\n');
             getchar();
         }
