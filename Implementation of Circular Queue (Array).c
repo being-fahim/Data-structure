@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MAXSIZE 10
 
-int queue[MAXSIZE];
+int cqueue[MAXSIZE];
 int rear = -1, front = -1;
 
 void insert();
@@ -58,7 +58,7 @@ void insert() {
         }else{
             rear = (rear + 1) % MAXSIZE;
         }
-        queue[rear] = n;
+        cqueue[rear] = n;
         printf("Successfully inserted %d onto the queue.\n", n);
 
     }
@@ -71,8 +71,8 @@ void display() {
     } else {
         printf("\n------Elements of queue------\n");
         for (i = front; i != rear; (i = (i + 1) % MAXSIZE)) {
-            printf("%d ", queue[i]);
-        } printf("%d", queue[i]);
+            printf("%d ", cqueue[i]);
+        } printf("%d", cqueue[i]);
     }
 }
 
@@ -81,7 +81,7 @@ void delete1() {
     if (rear == -1 && front == -1) {
         printf("\nQueue Underflow (Empty)!\n");
     } else {
-        m = queue[front];
+        m = cqueue[front];
         printf("\nDeleted element: %d\n", m);
         if(rear == front){
             rear = -1;
