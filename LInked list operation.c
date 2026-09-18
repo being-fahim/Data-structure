@@ -13,14 +13,16 @@ void delete_first();
 void delete_last();
 void delete_middle();
 void display();
+void search();
+void count_node();
 
 int main() {
     int choice;
     do {
     system("cls");
-        printf("\n----------Linked list----------\n");
-        printf("1. Create\n2. Insert on first\n3. Insert on last \n4. Insert on Middle\n5. Delete from First\n6. Delete from last \n7. Delete from Middle\n8. Display\n9. Exit \n");
-        printf("-------------------------\n");
+        printf("\n*----------Linked list----------*\n");
+        printf(" 1. Create\n 2. Insert on first\n 3. Insert on last \n 4. Insert on Middle\n 5. Delete from First\n 6. Delete from last \n 7. Delete from Middle\n 8. Display\n 9. Search\n10. Count the node\n11. Exit");
+        printf("\n*-------------------------------*\n\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -50,6 +52,11 @@ int main() {
                 display();
                 break;
             case 9:
+                search();
+                break;
+            case 10:
+                count_node();
+            case 11:
                 printf("\nExiting program...\n");
                 break;
             default:
@@ -201,7 +208,7 @@ void delete_middle() {
 
 void display() {
     if(start == NULL)
-        printf("List not found!");
+        printf("\nList not found!");
     else{
         temp = start;
         while(temp != NULL){
@@ -212,5 +219,34 @@ void display() {
     }
 }
 
+void search(){
+    int s, f = 0;
+    if(start == NULL)
+        printf("\nList not found!");
+    else{
+        printf("\nEnter the value you are searching: ");
+        scanf("%d", &s);
+        temp = start;
+        while(temp -> data == s){
+            f = 1;
+            break;
+        }
+        temp = temp -> add;
+    }
+    if(f == 1)
+        printf("Searching successful");
+    else
+        printf("Searching failed!");
+}
+
+void count_node(){
+    int count = 0;
+    temp = start;
+    while(temp != NULL){
+        count++;
+        temp = temp -> add;
+    }
+    printf("Total node is %d", count);
+}
 
 
