@@ -62,12 +62,12 @@ int main() {
             default:
                 printf("\nInvalid choice!\n");
         }
-        if (choice != 9) {
+        if (choice != 11) {
             printf("\nPress Enter to continue...");
             while (getchar() != '\n');
             getchar();
         }
-    } while (choice != 9);
+    } while (choice != 11);
 
     return 0;
 }
